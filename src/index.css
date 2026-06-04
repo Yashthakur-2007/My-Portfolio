@@ -126,7 +126,8 @@
   }
 
   .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 18s linear infinite;
+    will-change: transform;
   }
 
   .animation-delay-100 {

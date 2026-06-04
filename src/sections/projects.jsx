@@ -9,8 +9,8 @@ const pj = [
           "A comprehensive analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
         image: "/projects/p1.png",
         tags: ["React", "JavaScript", "Tailwindcss"],
-        link: "#",
-        github: "#",
+        link: "https://placement-os-ten.vercel.app/",
+        github: "https://github.com/Yashthakur-2007/PlacementOs",
     },
     {
         title: "FreeSketch",
@@ -18,8 +18,8 @@ const pj = [
           "A full-featured Sketch website with a modern design and intuitive user interface.",
         image: "/projects/p2.png",
         tags: ["React", "JavaScript", "Tailwindcss"],
-        link: "#",
-        github: "#",
+        link: "https://free-sketch.vercel.app/",
+        github: "https://github.com/Yashthakur-2007/FreeSketch",
     },
     {
         title: "BrainDump",
@@ -27,8 +27,8 @@ const pj = [
           "An intelligent Note-taking website, helping users create/delete/edit Notes and to-do items faster.",
         image: "/projects/p3.png",
         tags: ["React", "JavaScript", "Tailwindcss"],
-        link: "#",
-        github: "#",
+        link: "https://brain-dump-mu-woad.vercel.app/",
+        github: "https://github.com/Yashthakur-2007/BrainDump",
     },
    {
         title: "Portfolio",
@@ -36,8 +36,8 @@ const pj = [
           "A Modern style portfolio website to showcase my work.",
         image: "/projects/p4.png",
         tags: ["React", "JavaScript", "Tailwindcss"],
-        link: "#",
-        github: "#"
+        link: "https://my-portfolio-eta-lake-84.vercel.app/",
+        github: "https://github.com/Yashthakur-2007/My-Portfolio",
     },
 ];
 
@@ -111,10 +111,16 @@ const Projects = ()=>{
             </div>
             {/* view all cta  */}
             <div className="text-center mt-12 animate-fade-in animation-delay-500">
-                <AnimatedBorderButton>
-                    View All Projects
-                    <ArrowUpRight className="w-5 h-5"/>
-                </AnimatedBorderButton>
+                <a
+                    href="https://github.com/Yashthakur-2007?tab=repositories"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <AnimatedBorderButton>
+                        View All Projects
+                        <ArrowUpRight className="w-5 h-5"/>
+                    </AnimatedBorderButton>
+                </a>
             </div>
         </div>
     </section>

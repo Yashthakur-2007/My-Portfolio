@@ -1,15 +1,16 @@
+import { useMemo } from "react";
 import Button from "@/components/button";
-import { ArrowRight, Download,ChevronDown } from "lucide-react";
-import {FaGithub} from "react-icons/fa";
-import {FaSquareXTwitter} from "react-icons/fa6";
-import {CiLinkedin} from "react-icons/ci";
+import { ArrowRight, Download, ChevronDown } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { CiLinkedin } from "react-icons/ci";
 import { AnimatedBorderButton } from "../components/AnimateBorderButton";
 
 const skills = [
     "React.js",
-    "Next.js",
     "Tailwind CSS",
-    "Django",
+    "Node.js",
+    "Fast api",
     "Git",
     "Github Actions",
     "AWS",
@@ -20,6 +21,20 @@ const skills = [
 ];
 
 const Hero = ()=>{
+    const floatingDots = useMemo(
+      () =>
+        Array.from({ length: 30 }, (_, i) => ({
+          id: i,
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          duration: 15 + Math.random() * 20,
+          delay: Math.random() * 5,
+        })),
+      []
+    );
+
+    const marqueeSkills = useMemo(() => [...skills, ...skills], []);
+
     const handleDownloadCV = () => {
       const link = document.createElement('a');
       link.href = '/Resume.pdf';
@@ -48,15 +63,18 @@ const Hero = ()=>{
 
             {/* green dot */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {[...Array(30)].map((_,i) =>(
-                    <div key={i} className="absolute w-1.5 h-1.5 rounded-full opactiy-60 "
-                    style={{
+                {floatingDots.map((dot) => (
+                    <div
+                      key={dot.id}
+                      className="absolute w-1.5 h-1.5 rounded-full opacity-60"
+                      style={{
                         backgroundColor: "#20B2A6",
-                        left: `${Math.random()*100}%`,
-                        top: `${Math.random()*100}%`,
-                        animation: `slow-drift ${15 + Math.random()*20}s ease-in-out infinite`,
-                        animationDelay: `${Math.random() *5}s`,
-                    }}/>
+                        left: dot.left,
+                        top: dot.top,
+                        animation: `slow-drift ${dot.duration}s ease-in-out infinite`,
+                        animationDelay: `${dot.delay}s`,
+                      }}
+                    />
                 ))}
                 </div>
                 {/* content */}
@@ -121,7 +139,7 @@ const Hero = ()=>{
                                   to-primary/10 blur-2xl animate-pulse"
                                 />
                                 <div className="relative glass rounded-3xl p-2 glow-border">
-                                    <img src="/profile-photo.jpg" alt="Yash thakur" className="w-full aspect-4/5 object-cover rounded-2xl" />
+                                    <img src="/profile-photo.png" alt="Yash thakur" className="w-full aspect-4/5 object-cover rounded-2xl" />
                                     {/* floating badge */}
                                     <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
                                         <div className="flex items-center gap-3">
@@ -148,11 +166,11 @@ const Hero = ()=>{
                             Technologies I work with
                         </p>
                         <div className="relative overflow-hidden">
-                            <div className="flex animate-marquee">
-                                {[...skills, ...skills].map((skills, idx) =>(
-                                    <div key={idx} className="flex shrink-0 px-8 py-4">
+                            <div className="flex animate-marquee w-max">
+                                {marqueeSkills.map((skill, idx) => (
+                                    <div key={`${skill}-${idx}`} className="flex shrink-0 px-8 py-4 whitespace-nowrap">
                                         <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
-                                            {skills}
+                                            {skill}
                                         </span>
                                     </div>
                                 ))}
