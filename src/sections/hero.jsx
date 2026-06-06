@@ -37,7 +37,7 @@ const Hero = ()=>{
 
     const handleDownloadCV = () => {
       const link = document.createElement('a');
-      link.href = '/resume-1.pdf';
+      link.href = '/resume-final.pdf';
       link.download = 'Yash_Thakur_Resume.pdf';
       document.body.appendChild(link);
       link.click();
